@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AspireJEE - Road to JEE 2027</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background: #f0f4f8; padding: 30px; color: #333; }
+    .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    h1 { text-align: center; color: #2b6cb0; margin-bottom: 10px; }
+    .countdown { text-align: center; font-size: 20px; margin-bottom: 30px; color: #444; }
+    nav { text-align: center; margin-bottom: 30px; }
+    nav a { text-decoration: none; margin: 0 15px; color: #2b6cb0; font-weight: 600; }
+    section { margin-bottom: 40px; }
+    h2 { color: #2c5282; margin-bottom: 10px; }
+    ul { list-style: none; margin-top: 10px; }
+    ul li { margin: 10px 0; padding: 10px; background: #edf2f7; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+    input[type="checkbox"] { transform: scale(1.2); }
+    footer { text-align: center; margin-top: 40px; font-size: 14px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AspireJEE</h1>
+    <div class="countdown" id="countdown"></div><nav>
+  <a href="#roadmap">Roadmap</a>
+  <a href="#notes">Study Notes</a>
+  <a href="#progress">Progress Tracker</a>
+</nav>
+
+<section id="roadmap">
+  <h2>Class 11 Roadmap</h2>
+  <ul>
+    <li>Week 1: Units & Dimensions <input type="checkbox"></li>
+    <li>Week 2: Motion in 1D <input type="checkbox"></li>
+    <li>Week 3: Laws of Motion <input type="checkbox"></li>
+    <li>Week 4: Work, Power, Energy <input type="checkbox"></li>
+  </ul>
+</section>
+
+<section id="notes">
+  <h2>Quick Access Notes</h2>
+  <ul>
+    <li><a href="#">Physics: Chapter 1 Notes</a></li>
+    <li><a href="#">Chemistry: Mole Concept</a></li>
+    <li><a href="#">Math: Sets & Relations</a></li>
+  </ul>
+</section>
+
+<section id="progress">
+  <h2>Progress Tracker</h2>
+  <ul>
+    <li>Thermodynamics <input type="checkbox"></li>
+    <li>Oscillations <input type="checkbox"></li>
+    <li>Trigonometry <input type="checkbox"></li>
+  </ul>
+</section>
+
+<footer>
+  Made with dedication for JEE 2027 aspirants.
+</footer>
+
+  </div>  <script>
+    // Countdown to JEE 2027 (Assumed April 6, 2027)
+    const jeeDate = new Date("2027-04-06T09:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = jeeDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      countdownEl.innerHTML = `JEE 2027 in: ${days} days ${hours} hours`;
+    }, 1000);
+
+    // LocalStorage for checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach((box, i) => {
+      box.checked = localStorage.getItem("aspireJEE_task_" + i) === "true";
+      box.addEventListener("change", () => {
+        localStorage.setItem("aspireJEE_task_" + i, box.checked);
+      });
+    });
+  </script></body>
+</html>
